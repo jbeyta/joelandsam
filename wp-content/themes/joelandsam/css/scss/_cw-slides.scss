@@ -1,0 +1,20 @@
+.cw-slideshow {
+	position: relative;
+	z-index: 1;
+	@include transition(opacity .5s);
+	@include opacity(0);
+	height: 100%;
+
+	&.loaded {
+		@include opacity(1);
+		@include transition(opacity .5s);
+	}
+}
+
+// @media all and (min-width: 1024px) {
+// 	.cw-slideshow {
+// 		.slide {
+
+// 		}
+// 	}
+// }

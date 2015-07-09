@@ -1,0 +1,376 @@
+@import "normalize";
+@import "foundation";
+@import "bourbon";
+@import "cw-custom"; // This is where we can put custom mixins and classes
+@import "gravityforms";
+@import "wordpress";
+@import "bxslider";
+@import "lightbox";
+// @import "cw-accordion";
+@import "cw-slides";
+
+// variables
+$blue: #A4E1F1;
+$dark_blue: darken($blue, 20%);
+$darker_blue: darken($blue, 50%);
+$red: #dc4444;
+
+$main_font: 'Raleway', sans-serif;
+
+$linkColor: $dark_blue;
+$linkHover: lighten($linkColor, 10%);
+$fontColor: #666;
+
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: $main_font;
+	font-weight: 400;
+}
+
+body {
+	&.admin-bar {
+		padding-top: 46px;
+	}
+}
+
+* {
+	outline: none!important;
+	
+	&:hover,
+	&:focus {
+		outline: none!important;
+	}
+}
+
+pre {
+	position: relative;
+	padding: 24px;
+	font-size: 10px;
+	border: solid 1px #666;
+	background-color: #fff;
+	@include border-radius(20px);
+	margin: 15px;
+
+	.close-pre {
+		display: block;
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		width: 20px;
+		height: 20px;
+		border: solid 1px #666;
+		@include border-radius(20px);
+		cursor: pointer;
+
+		&:before,
+		&:after {
+			position: absolute;
+			display: block;
+			content: '';
+			background-color: #666;
+			width: 13px;
+			height: 2px;
+			top: 50%;
+			left: 50%;
+			@include transform-origin(center center);
+			@include transition(.5s);
+		}
+
+		&:before {
+			@include transform(translateY(-50%) translateX(-50%) rotate(0deg));
+		}
+
+		&:after {
+			@include transform(translateY(-50%) translateX(-50%) rotate(0deg));
+		}
+
+		&.open {
+			&:before {
+				@include transform(translateY(-50%) translateX(-50%) rotate(90deg));
+			}
+			&:after {
+				@include transform(translateY(-50%) translateX(-50%) rotate(180deg));
+			}
+		}
+	}
+}
+
+// reference clases
+.vertcent {
+	position: absolute;
+	top: 50%;
+	@include transform(translateY(-50%));
+}
+
+.horzcent {
+	position: absolute;
+	left: 50%;
+	@include transform(translateX(-50%));
+}
+
+.absocent {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	@include transform(translateX(-50%) translateY(-50%));
+}
+
+.smoothfont {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+//typography
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-weight: 100;
+	color: $red;
+
+	.page-template-page-galleries & {
+		color: $dark_blue;
+	}
+
+	&.page-title {
+
+	}
+}
+
+h1 {
+	font-size: 48px;
+}
+
+h2 {
+	font-size: 36px;
+}
+h3 {
+	font-size: 32px;
+}
+h4 {
+	font-size: 24px;
+}
+h5 {
+	font-size: 18px;
+}
+h6 {
+	font-size: 16px;
+}
+
+p, li  {
+	font-size: 16px;
+	color: $fontColor;
+	font-weight: 400;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+ul {
+	&.styleless {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+}
+
+a {
+	color: $linkColor;
+	@include transition(.25s);
+
+	&:hover {
+		color: $linkHover;
+		@include transition(.25s);
+	}
+}
+
+input[type="text"],
+input[type="email"],
+input[type="submit"],
+select,
+textarea {
+	border: 0;
+	outline: none!important;
+	padding: 10px!important;
+	margin: 0!important;
+}
+
+input[type="submit"] {
+
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+
+}
+
+input[type="text"],
+input[type="email"] {
+
+}
+
+textarea {
+
+}
+// header and nav
+[role=banner] {
+	position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 9999;
+	border-bottom: solid 1px $blue;
+
+	.home & {
+		border-bottom: 0;
+
+		.contain-to-grid {
+			background-color: rgba(255, 255, 255, .5);
+		}
+	}
+
+	// foundation nav structure
+	.contain-to-grid {
+		background-color: rgba(255, 255, 255, 1);
+
+		[role="navigation"] {
+			.title-area {
+				.logo {
+					font-family: $main_font;
+					font-weight: 400;
+
+					a {
+						color: $red;
+					}
+				}
+			}
+			.top-bar-section {
+				.menu {
+					.menu-item {
+						&.menu-item-type-custom {
+							& > a {
+							}
+						}
+						&.current-menu-item,
+						&.current-menu-parent,
+						&.active {
+							& > a {
+							}
+						}
+						a {
+							font-family: $main_font;
+							color: $darker_blue;
+
+							&:hover {
+							}
+						}
+						.sub-menu {
+							.menu-item {
+								&.menu-item-type-custom {
+									a {
+									}
+								}
+								a {
+									&:hover {
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// main content
+[role="main"] {
+	margin-top: 60px;
+
+	.home & {
+		margin-top: 0;
+	}
+}
+
+// sidebar
+[role="complementary"] {
+
+}
+
+// footer
+[role="contentinfo"] {
+	position: fixed;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	z-index: 9999;
+	background-color: rgba(255, 255, 255, .5);
+	padding: 15px 0;
+	border-top: solid 1px $blue;
+
+	.home & {
+		border-top: 0;
+	}
+
+	.copy {
+		font-size: 12px;
+	}
+}
+
+// misc stuff, specific stuff, global stuff
+hr {
+	border-color: $red;
+}
+
+.logo {
+	a {
+		display: inline-block;
+	}
+}
+
+.gf_captcha {
+	display: none;
+}
+
+.cf:before,
+.cf:after {
+content: " "; /* 1 */
+display: table; /* 2 */
+}
+
+.cf:after {
+	clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+ .cf {
+ 	*zoom: 1;
+ }
+
+@media all and (min-width: 783px) {
+	body {
+		&.admin-bar {
+			padding-top: 32px;
+		}
+	}
+}
+
+ // print styles
+ @media print {
+ 	* { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
+ 	a, a:visited { text-decoration: underline; }
+ 	a[href]:after { content: " (" attr(href) ")"; }
+ 	abbr[title]:after { content: " (" attr(title) ")"; }
+ 	.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+ 	pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+ 	thead { display: table-header-group; }
+ 	tr, img { page-break-inside: avoid; }
+ 	img { max-width: 100% !important; }
+ 	@page { margin: 0.5cm; }
+ 	p, h2, h3 { orphans: 3; widows: 3; }
+ 	h2, h3 { page-break-after: avoid; }
+ }

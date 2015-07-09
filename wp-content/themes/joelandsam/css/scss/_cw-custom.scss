@@ -1,0 +1,64 @@
+.equiwidth {
+	text-align: justify;
+	line-height: .5em;
+	padding-top: .25em;
+	line-height: 0;
+ 
+	* {
+		display: inline;
+	}
+ 
+	li {
+		display: inline-block !important;
+		width: auto!important;
+ 
+		a {
+			margin: 0;
+			line-height: 1em;
+		}
+	}
+ 
+	&:after {
+		content: '';
+		width: 100%; /* Ensures there are at least 2 lines of text, so justification works */
+		display: inline-block;
+	}
+}
+
+/* Fixes styling issues with recaptcha and Foundation */
+#recaptcha_area input[type="text"] {
+	display: inline-block;
+	height: auto!important;
+}
+
+//mixins
+@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
+    text-shadow: $x $y $blur $color;
+}
+
+@mixin box-shadow($top, $left, $blur, $spread, $color, $inset:"") {
+	-webkit-box-shadow:$top $left $blur $spread $color #{$inset};
+	-moz-box-shadow:$top $left $blur $spread $color #{$inset};
+	box-shadow:$top $left $blur $spread $color #{$inset};
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin opacity($value){
+	$IEValue: $value*100;
+	opacity: $value;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+	filter: alpha(opacity=$IEValue);
+}

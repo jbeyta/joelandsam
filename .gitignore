@@ -1,0 +1,8 @@
+.DS_Store
+*node_modules/
+*sass-cache/
+wp-config.php
+wp-content/uploads/wp-migrate-db/*
+wp-content/uploads/gravity-forms/*
+wp-content/uploads/gravity_forms/*
+*.log

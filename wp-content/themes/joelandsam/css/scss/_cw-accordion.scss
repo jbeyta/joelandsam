@@ -1,0 +1,25 @@
+.cw-accordion {
+	margin-bottom: 30px;
+	overflow: hidden;
+
+	.cwa-section-header {
+		position: relative;
+		cursor: pointer;
+		overflow: hidden;
+		@include transition(.25s);
+
+		&.open-header {
+			display: block;
+		}
+	}
+
+	.cwa-section-content {
+		background-color: #dbdbdb;
+		display: none;
+		overflow: hidden;
+
+		&.open-tab {
+			display: block;
+		}
+	}
+}

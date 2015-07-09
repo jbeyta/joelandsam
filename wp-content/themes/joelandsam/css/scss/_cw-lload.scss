@@ -1,0 +1,190 @@
+.lload {
+	@include opacity(1);
+	// @include transition(opacity .5s, transform .01s ease-in-out .5s);
+	// @include transition(1s);
+
+	// have to use this for now, node-bourbon is out of date and does something wrong where safari won't transition
+	-webkit-transition: opacity .5s, transform .01s ease-in-out .5s;
+	-moz-transition: opacity .5s, transform .01s ease-in-out .5s;
+	-ms-transition: opacity .5s, transform .01s ease-in-out .5s;
+	-o-transition: opacity .5s, transform .01s ease-in-out .5s;
+	transition: opacity .5s, transform .01s ease-in-out .5s;
+
+	&.lleft {
+		@include transform(translateX(0));
+	}
+
+	&.lright {
+		@include transform(translateX(0));
+	}
+
+	&.lup {
+		@include transform(translateY(0));
+	}
+
+	&.ldown {
+		@include transform(translateY(0));
+	}
+
+	&.lzoomin {
+		@include transform(scale(1));
+	}
+
+	&.lzoomout {
+		@include transform(scale(1));
+	}
+
+	&.lrotateright {
+		@include transform(rotate(0));
+	}
+
+	&.lrotateleft {
+		@include transform(rotate(0));
+	}
+
+	&.lloaded {
+		@include transform(rotate(0) scale(1) translateX(0) translateY(0));
+		@include opacity(1);
+		@include transition(1s);
+	}
+
+	&.lchildren {
+		.lchild {
+			@include opacity(1);
+			// @include transition(opacity .5s, transform .01s ease-in-out .5s);
+			// @include transition(.5s);
+
+			// have to use this for now, node-bourbon is out of date and does something wrong where safari won't transition
+			-webkit-transition: opacity .5s, transform .01s ease-in-out .5s;
+			-moz-transition: opacity .5s, transform .01s ease-in-out .5s;
+			-ms-transition: opacity .5s, transform .01s ease-in-out .5s;
+			-o-transition: opacity .5s, transform .01s ease-in-out .5s;
+			transition: opacity .5s, transform .01s ease-in-out .5s;
+
+			&.lleft {
+				@include transform(translateX(0));
+			}
+
+			&.lright {
+				@include transform(translateX(0));
+			}
+
+			&.lup {
+				@include transform(translateY(0));
+			}
+
+			&.ldown {
+				@include transform(translateY(0));
+			}
+
+			&.lzoomin {
+				@include transform(scale(1));
+			}
+
+			&.lzoomout {
+				@include transform(scale(1));
+			}
+
+			&.lrotateright {
+				@include transform(rotate(0));
+			}
+
+			&.lrotateleft {
+				@include transform(rotate(0));
+			}
+
+			&.lloaded-child {
+				@include transform(rotate(0) scale(1) translateX(0) translateY(0));
+				@include opacity(1);
+				// @include transition(opacity .5s, transform .5s);
+				@include transition(.5s);
+			}
+		}
+	}
+}
+
+@media all and (min-width: 640px) {
+	.lload {
+		@include opacity(0);
+
+		&.lleft {
+			@include transform(translateX(-100px));
+		}
+
+		&.lright {
+			@include transform(translateX(100px));
+		}
+
+		&.lup {
+			@include transform(translateY(100px));
+		}
+
+		&.ldown {
+			@include transform(translateY(-100px));
+		}
+
+		&.lzoomin {
+			@include transform(scale(.875));
+		}
+
+		&.lzoomout {
+			@include transform(scale(1.125));
+		}
+
+		&.lrotateright {
+			@include transform(rotate(-10deg));
+		}
+
+		&.lrotateleft {
+			@include transform(rotate(10deg));
+		}
+
+		&.lloaded {
+			@include transform(rotate(0) scale(1) translateX(0) translateY(0));
+			@include opacity(1);
+		}
+
+		&.lchildren {
+			.lchild {
+				@include opacity(0);
+
+				&.lleft {
+					@include transform(translateX(-100px));
+				}
+
+				&.lright {
+					@include transform(translateX(100px));
+				}
+
+				&.lup {
+					@include transform(translateY(100px));
+				}
+
+				&.ldown {
+					@include transform(translateY(-100px));
+				}
+
+				&.lzoomin {
+					@include transform(scale(.875));
+				}
+
+				&.lzoomout {
+					@include transform(scale(1.125));
+				}
+
+				&.lrotateright {
+					@include transform(rotate(-10deg));
+				}
+
+				&.lrotateleft {
+					@include transform(rotate(10deg));
+				}
+
+				&.lloaded-child {
+					@include transform(rotate(0) scale(1) translateX(0) translateY(0));
+					@include opacity(1);
+				}
+			}
+		}
+	}
+}
